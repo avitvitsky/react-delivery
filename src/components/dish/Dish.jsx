@@ -1,4 +1,4 @@
-import { Counter } from "../counter/Counter";
+import { DishCounter } from "../dishcounter/DishCounter";
 
 export const Dish = ({ dish }) => {
   const { name } = dish;
@@ -10,7 +10,7 @@ export const Dish = ({ dish }) => {
   return (
     <>
       <span>{name}</span>
-      <Counter />
+      <DishCounter />
     </>
   );
 };
