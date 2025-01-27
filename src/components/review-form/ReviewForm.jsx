@@ -1,15 +1,17 @@
 import { Counter } from "../counter/Counter";
-import { useCount } from "../counter/use-counter";
 import { useForm } from "./use-form";
 
 export const ReviewForm = () => {
-  const { name, text, setName, setText, setInitial } = useForm();
-  const { count, onIncrement, onDecrement, onClear } = useCount(1);
-
-  const setClear = () => {
-    setInitial();
-    onClear();
-  };
+  const {
+    name,
+    text,
+    rating,
+    setName,
+    setText,
+    setIncrement,
+    setDecrement,
+    setInitial,
+  } = useForm();
 
   return (
     <div>
@@ -32,12 +34,12 @@ export const ReviewForm = () => {
       <div>
         <span>Rating</span>
         <Counter
-          count={count}
-          onIncrement={onIncrement}
-          onDecrement={onDecrement}
+          count={rating}
+          onIncrement={setIncrement}
+          onDecrement={setDecrement}
         />
       </div>
-      <button onClick={() => setClear()}>Clear</button>
+      <button onClick={setInitial}>Clear</button>
     </div>
   );
 };
