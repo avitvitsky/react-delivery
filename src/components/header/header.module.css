@@ -1,0 +1,12 @@
+.header {
+  height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-color: #e2e2f5fa;
+  padding: 10px 20px;
+}
+
+.title {
+  font-size: 18px;
+}
