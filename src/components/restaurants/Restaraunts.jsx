@@ -2,6 +2,9 @@ import { useState } from "react";
 import { restaurants } from "../../mock";
 import { Restaurant } from "../restaurant/Restaurant";
 
+import styles from "./restaurants.module.css";
+import { Button } from "../button/Button";
+
 export const Restaurants = () => {
   const [activeRestaurantId, setActiveRestaurantId] = useState(
     restaurants[0].id
@@ -12,18 +15,23 @@ export const Restaurants = () => {
   );
 
   return (
-    <>
+    <div>
       <h1>Restaurants</h1>
-      {restaurants.map((restaurant) => (
-        <button
-          key={restaurant.id}
-          onClick={() => setActiveRestaurantId(restaurant.id)}
-          disabled={restaurant.id === activeRestaurantId}
-        >
-          {restaurant.name}
-        </button>
-      ))}
+      <div className={styles.root}>
+        {restaurants.map((restaurant) => (
+          <Button
+            key={restaurant.id}
+            title={restaurant.name}
+            onClick={() => setActiveRestaurantId(restaurant.id)}
+            disabled={restaurant.id === activeRestaurantId}
+            className={styles.button}
+            size="md"
+          />
+        ))}
+      </div>
       <Restaurant restaurant={activeRestaurant} />
-    </>
+      <Restaurant restaurant={activeRestaurant} />
+      <Restaurant restaurant={activeRestaurant} />
+    </div>
   );
 };

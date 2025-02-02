@@ -1,0 +1,19 @@
+.button {
+  width: fit-content;
+  height: fit-content;
+  background: #e6e6fafa;
+  border-width: 2px;
+  border-color: rgb(45, 0, 71, 0.5);
+  border-radius: 5px;
+  border-style: solid;
+}
+
+.xs {
+  font-size: 14px;
+  padding: 5px 9px;
+}
+
+.md {
+  font-size: 18px;
+  padding: 8px 16px;
+}

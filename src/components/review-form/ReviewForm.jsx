@@ -1,5 +1,8 @@
+import { Button } from "../button/Button";
 import { Counter } from "../counter/Counter";
 import { useForm } from "./use-form";
+
+import styles from "./review-form.module.css";
 
 export const ReviewForm = () => {
   const {
@@ -39,7 +42,7 @@ export const ReviewForm = () => {
           onDecrement={setDecrement}
         />
       </div>
-      <button onClick={setInitial}>Clear</button>
+      <Button title="Clear" className={styles.clear} onClick={setInitial} />
     </div>
   );
 };
