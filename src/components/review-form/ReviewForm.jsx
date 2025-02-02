@@ -17,7 +17,7 @@ export const ReviewForm = () => {
   } = useForm();
 
   return (
-    <form className={styles.root}>
+    <form className={styles.root} onSubmit={(event) => event.preventDefault()}>
       <span>Name</span>
       <input
         className={styles.input}

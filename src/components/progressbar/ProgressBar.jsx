@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./progressbar.module.css";
 
 export const ProgressBar = () => {
-  const [progressCoef, setProgressCoef] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const callback = () => {
@@ -16,17 +16,15 @@ export const ProgressBar = () => {
         document.documentElement.clientHeight
       );
 
-      setProgressCoef(window.scrollY / (scrollHeight - window.innerHeight));
+      setProgress(
+        (window.innerWidth * window.scrollY) /
+          (scrollHeight - window.innerHeight)
+      );
     };
     window.addEventListener("scroll", callback);
 
     return () => window.removeEventListener("scroll", callback);
   }, []);
 
-  return (
-    <div
-      className={styles.progressbar}
-      style={{ width: window.innerWidth * progressCoef }}
-    ></div>
-  );
+  return <div className={styles.progressbar} style={{ width: progress }} />;
 };
