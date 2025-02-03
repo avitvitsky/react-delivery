@@ -18,3 +18,9 @@
 .title {
   font-size: 18px;
 }
+
+.buttons_container {
+  display: flex;
+  column-gap: 20px;
+  justify-content: space-between;
+}

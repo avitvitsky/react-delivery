@@ -1,6 +1,7 @@
 import { use } from "react";
 import { ThemeContext } from "../theme-context";
 import { ToggleThemeButton } from "../toggle-theme-button/Toggle-theme-button";
+import { AuthorizationButton } from "../authorization-button/Authorization-button";
 import styles from "./header.module.css";
 import classNames from "classnames";
 
@@ -15,7 +16,10 @@ export const Header = () => {
       })}
     >
       <span className={styles.title}>RapidDelivery</span>
-      <ToggleThemeButton />
+      <div className={styles.buttons_container}>
+        <ToggleThemeButton />
+        <AuthorizationButton />
+      </div>
     </header>
   );
 };
