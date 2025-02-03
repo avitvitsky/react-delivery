@@ -1,11 +1,19 @@
 .button {
   width: fit-content;
   height: fit-content;
-  background: #e6e6fafa;
   border-width: 2px;
-  border-color: rgb(45, 0, 71, 0.5);
   border-radius: 5px;
   border-style: solid;
+}
+
+.orange {
+  background-color: rgb(250, 193, 155);
+  border-color: rgba(239, 111, 25, 0.586);
+}
+
+.purple {
+  background-color: #e6e6fafa;
+  border-color: rgb(45, 0, 71, 0.5);
 }
 
 .xs {
