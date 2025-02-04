@@ -1,5 +1,12 @@
 .progressbar {
   position: fixed;
   height: 10px;
+}
+
+.orange {
+  background: linear-gradient(90deg, #f0d6b8fa 0%, rgb(239, 158, 123) 100%);
+}
+
+.purple {
   background: linear-gradient(90deg, #b8b8f0fa 0%, rgb(177, 144, 215) 100%);
 }

@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 import styles from "./progressbar.module.css";
+import { ThemeContext } from "../theme-context";
+import classNames from "classnames";
 
 export const ProgressBar = () => {
+  const { theme } = use(ThemeContext);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -26,5 +29,13 @@ export const ProgressBar = () => {
     return () => window.removeEventListener("scroll", callback);
   }, []);
 
-  return <div className={styles.progressbar} style={{ width: progress }} />;
+  return (
+    <div
+      className={classNames(styles.progressbar, {
+        [styles.orange]: theme === "orange",
+        [styles.purple]: theme === "purple",
+      })}
+      style={{ width: progress }}
+    />
+  );
 };

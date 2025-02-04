@@ -3,10 +3,24 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  background-color: #e2e2f5fa;
+  justify-content: space-between;
   padding: 10px 20px;
+}
+
+.orange {
+  background-color: rgba(250, 193, 155, 0.8);
+}
+
+.purple {
+  background-color: #e6e6facc;
 }
 
 .title {
   font-size: 18px;
+}
+
+.buttons_container {
+  display: flex;
+  column-gap: 20px;
+  justify-content: space-between;
 }

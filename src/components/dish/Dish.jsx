@@ -1,6 +1,9 @@
+import { use } from "react";
 import { DishCounter } from "../dishcounter/DishCounter";
+import { UserContext } from "../user-context";
 
 export const Dish = ({ dish }) => {
+  const { user } = use(UserContext);
   const { name } = dish;
 
   if (!name) {
@@ -10,7 +13,7 @@ export const Dish = ({ dish }) => {
   return (
     <>
       <span>{name}</span>
-      <DishCounter />
+      {Boolean(user) && <DishCounter />}
     </>
   );
 };
