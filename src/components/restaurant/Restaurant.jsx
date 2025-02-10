@@ -17,7 +17,7 @@ export const Restaurant = ({ restaurant }) => {
       <h2>{name}</h2>
       {Boolean(menu.length) && <Menu menu={menu} />}
       {Boolean(reviews.length) && <Reviews reviews={reviews} />}
-      {Boolean(user) && <ReviewForm />}
+      {Boolean(user.isAuthorized) && <ReviewForm />}
     </div>
   );
 };

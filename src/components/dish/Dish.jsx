@@ -13,7 +13,7 @@ export const Dish = ({ dish }) => {
   return (
     <>
       <span>{name}</span>
-      {Boolean(user) && <DishCounter />}
+      {Boolean(user.isAuthorized) && <DishCounter />}
     </>
   );
 };

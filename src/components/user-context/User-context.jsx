@@ -2,10 +2,15 @@ import { useCallback, useState } from "react";
 import { UserContext } from ".";
 
 export const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState("Антон");
+  const [user, setUser] = useState({ isAuthorized: false });
 
   const authUser = useCallback(
-    () => setUser((currentUser) => (currentUser !== "" ? "" : "Антон")),
+    () =>
+      setUser((prev) =>
+        prev.isAuthorized
+          ? { isAuthorized: false }
+          : { isAuthorized: true, name: "Антон" }
+      ),
     []
   );
 
