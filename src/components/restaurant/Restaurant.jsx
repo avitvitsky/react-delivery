@@ -4,9 +4,8 @@ import { ReviewForm } from "../review-form/ReviewForm";
 import { Reviews } from "../reviews/Reviews";
 import { UserContext } from "../user-context";
 
-export const Restaurant = ({ restaurant }) => {
+export const Restaurant = ({ name, menu, reviewsIds }) => {
   const { user } = use(UserContext);
-  const { name, menu, reviews } = restaurant;
 
   if (!name) {
     return null;
@@ -16,8 +15,8 @@ export const Restaurant = ({ restaurant }) => {
     <div>
       <h2>{name}</h2>
       {Boolean(menu.length) && <Menu menu={menu} />}
-      {Boolean(reviews.length) && <Reviews reviews={reviews} />}
-      {Boolean(user) && <ReviewForm />}
+      {Boolean(reviewsIds.length) && <Reviews reviewsIds={reviewsIds} />}
+      {Boolean(user.isAuthorized) && <ReviewForm />}
     </div>
   );
 };

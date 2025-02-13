@@ -1,13 +1,13 @@
-import { Dish } from "../dish/Dish";
+import { DishContainer } from "../dish/dish-container";
 
 export const Menu = ({ menu }) => {
   return (
     <>
       <h3>Меню</h3>
       <ul>
-        {menu.map((menuItem) => (
-          <li key={menuItem.id}>
-            <Dish dish={menuItem} />
+        {menu.map((dishId) => (
+          <li key={dishId}>
+            <DishContainer id={dishId} />
           </li>
         ))}
       </ul>

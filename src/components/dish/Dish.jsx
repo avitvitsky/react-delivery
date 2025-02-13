@@ -2,9 +2,8 @@ import { use } from "react";
 import { DishCounter } from "../dishcounter/DishCounter";
 import { UserContext } from "../user-context";
 
-export const Dish = ({ dish }) => {
+export const Dish = ({ name }) => {
   const { user } = use(UserContext);
-  const { name } = dish;
 
   if (!name) {
     return null;
@@ -13,7 +12,7 @@ export const Dish = ({ dish }) => {
   return (
     <>
       <span>{name}</span>
-      {Boolean(user) && <DishCounter />}
+      {user.isAuthorized && <DishCounter />}
     </>
   );
 };
