@@ -2,7 +2,7 @@ import { use } from "react";
 import { DishCounter } from "../dishcounter/DishCounter";
 import { UserContext } from "../user-context";
 
-export const Dish = ({ name }) => {
+export const Dish = ({ id, name }) => {
   const { user } = use(UserContext);
 
   if (!name) {
@@ -12,7 +12,7 @@ export const Dish = ({ name }) => {
   return (
     <>
       <span>{name}</span>
-      {user.isAuthorized && <DishCounter />}
+      {user.isAuthorized && <DishCounter dishId={id} />}
     </>
   );
 };
