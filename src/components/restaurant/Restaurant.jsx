@@ -1,12 +1,8 @@
-import { use } from "react";
-import { Menu } from "../menu/Menu";
-import { ReviewForm } from "../review-form/ReviewForm";
-import { Reviews } from "../reviews/Reviews";
-import { UserContext } from "../user-context";
+import styles from "./restaurant.module.css";
+import { NavLink } from "react-router";
+import { Button } from "../button/Button";
 
-export const Restaurant = ({ name, menu, reviewsIds }) => {
-  const { user } = use(UserContext);
-
+export const Restaurant = ({ id, name }) => {
   if (!name) {
     return null;
   }
@@ -14,9 +10,14 @@ export const Restaurant = ({ name, menu, reviewsIds }) => {
   return (
     <div>
       <h2>{name}</h2>
-      {Boolean(menu.length) && <Menu menu={menu} />}
-      {Boolean(reviewsIds.length) && <Reviews reviewsIds={reviewsIds} />}
-      {Boolean(user.isAuthorized) && <ReviewForm />}
+      <div className={styles.root}>
+        <NavLink to={`/restaurants/${id}/menu`}>
+          {({ isActive }) => <Button title="Меню" disabled={isActive} />}
+        </NavLink>
+        <NavLink to={`/restaurants/${id}/reviews`}>
+          {({ isActive }) => <Button title="Отзывы" disabled={isActive} />}
+        </NavLink>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { use } from "react";
 import { DishCounter } from "../dishcounter/DishCounter";
 import { UserContext } from "../user-context";
+import { Link } from "react-router";
 
 export const Dish = ({ id, name }) => {
   const { user } = use(UserContext);
@@ -11,7 +12,7 @@ export const Dish = ({ id, name }) => {
 
   return (
     <>
-      <span>{name}</span>
+      <Link to={`/dish/${id}`}>{name}</Link>
       {user.isAuthorized && <DishCounter dishId={id} />}
     </>
   );
