@@ -5,7 +5,6 @@ import { Menu } from "../components/menu/Menu";
 
 export const MenuPage = () => {
   const { restaurantId } = useParams();
-  console.log(restaurantId);
   const restaurant = useSelector((state) =>
     selectRestaurantById(state, restaurantId)
   );

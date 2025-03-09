@@ -6,18 +6,13 @@ import { Outlet } from "react-router";
 
 export const Restaurants = () => {
   const restaurantsIds = useSelector(selectRestaurantsIds);
-  //   const navigate = useNavigate();
 
   return (
     <div>
       <h1>Restaurants</h1>
       <div className={styles.root}>
         {restaurantsIds.map((id) => (
-          <RestaurantTabContainer
-            key={id}
-            id={id}
-            // onClick={() => navigate(`/restaurants/${id}`)}
-          />
+          <RestaurantTabContainer key={id} id={id} />
         ))}
       </div>
 
