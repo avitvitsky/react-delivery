@@ -1,12 +1,7 @@
-import { use } from "react";
-import { Menu } from "../menu/Menu";
-import { ReviewForm } from "../review-form/ReviewForm";
-import { Reviews } from "../reviews/Reviews";
-import { UserContext } from "../user-context";
+import styles from "./restaurant.module.css";
+import { Tablink } from "../tablink/Tablink";
 
-export const Restaurant = ({ name, menu, reviewsIds }) => {
-  const { user } = use(UserContext);
-
+export const Restaurant = ({ id, name }) => {
   if (!name) {
     return null;
   }
@@ -14,9 +9,10 @@ export const Restaurant = ({ name, menu, reviewsIds }) => {
   return (
     <div>
       <h2>{name}</h2>
-      {Boolean(menu.length) && <Menu menu={menu} />}
-      {Boolean(reviewsIds.length) && <Reviews reviewsIds={reviewsIds} />}
-      {Boolean(user.isAuthorized) && <ReviewForm />}
+      <div className={styles.root}>
+        <Tablink link={`/restaurants/${id}/menu`} title="Меню" />
+        <Tablink link={`/restaurants/${id}/reviews`} title="Отзывы" />
+      </div>
     </div>
   );
 };

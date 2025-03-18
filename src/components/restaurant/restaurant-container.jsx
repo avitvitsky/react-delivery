@@ -5,7 +5,7 @@ import { Restaurant } from "./Restaurant";
 export const RestaurantContainer = ({ id }) => {
   const restaurant = useSelector((state) => selectRestaurantById(state, id));
 
-  const { name, menu, reviews } = restaurant || {};
+  const { name } = restaurant || {};
 
-  return <Restaurant name={name} menu={menu} reviewsIds={reviews} />;
+  return <Restaurant id={id} name={name} />;
 };

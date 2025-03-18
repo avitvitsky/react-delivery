@@ -1,12 +1,12 @@
 import { Counter } from "../counter/Counter";
 import { useCount } from "../counter/use-counter";
 
-export const DishCounter = () => {
-  const { count, onIncrement, onDecrement } = useCount();
+export const DishCounter = ({ dishId }) => {
+  const { amount, onIncrement, onDecrement } = useCount(dishId);
 
   return (
     <Counter
-      count={count}
+      amount={amount}
       onIncrement={onIncrement}
       onDecrement={onDecrement}
     />
