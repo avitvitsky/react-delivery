@@ -1,0 +1,11 @@
+.navlink {
+  font-size: 18px;
+}
+
+.navlink:active {
+  color: purple;
+}
+
+.active {
+  opacity: 0.5;
+}
